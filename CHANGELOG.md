@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and the [Keep 
 
 - `Faker.Vehicle.En` - ensure generated VINs have the correct check digit [[@rubysolo](https://github.com/rubysolo)]
 - `Faker.Util.list/2` - accept a length of `0` (returns `[]` instead of raising) [[@lud-wj](https://github.com/lud-wj)]
+- `Faker.Gov.It.fiscal_code/0` - fix fiscal code generation [[@CostantiniMatteo](https://github.com/CostantiniMatteo)]
 
 
 ## [1.0.1](https://github.com/artkay/fakerer/compare/v1.0.0...v1.0.1) (2026-05-12)
