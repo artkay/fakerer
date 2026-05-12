@@ -9,6 +9,7 @@ This is the first release of **Fakerer**, a maintained fork of [elixirs/faker](h
 - Forked from `elixirs/faker` at `0.19.0-alpha.1`.
 - Renamed the Hex package to `fakerer`. The `Faker.*` module API and the underlying OTP application name (`:faker`) are unchanged — migration is a one-line change in `mix.exs`, and `config :faker, ...` keeps working without modification.
 - Promoted to `1.0.0` to signal API stability under new maintenance.
+- **Raised minimum Elixir to 1.16** The supported matrix is now Elixir 1.16 / 1.17 / 1.18 / 1.19 across OTP 26 / 27 / 28.
 
 ### Included from the unreleased `0.19.0-alpha.1`
 
