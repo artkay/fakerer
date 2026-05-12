@@ -82,7 +82,7 @@ Fakerer `1.0.0` includes everything from Faker `0.18.0` plus the changes that we
 ### Requirements
 
 * OTP 26+
-* Elixir 1.15+
+* Elixir 1.16+
 
 ## Usage
 

@@ -31,9 +31,6 @@ jobs:
           - pair:
               otp: "26"
               elixir: "1.16"
-          - pair:
-              otp: "26"
-              elixir: "1.15"
 
     steps:
       - uses: actions/checkout@v4

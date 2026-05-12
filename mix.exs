@@ -8,7 +8,7 @@ defmodule Faker.Mixfile do
     [
       app: :faker,
       version: @version,
-      elixir: "~> 1.15",
+      elixir: "~> 1.16",
       description: "A maintained fork of Faker. A pure Elixir library for generating fake data.",
       package: package(),
       name: "Fakerer",
@@ -48,7 +48,7 @@ defmodule Faker.Mixfile do
   defp deps do
     [
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:earmark, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.40", only: :dev, runtime: false},
       {:makeup, "~> 1.2"},
