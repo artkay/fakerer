@@ -45,24 +45,28 @@ Change one line in your `mix.exs`:
 {:faker, "~> 0.18", only: :test}
 
 # After
-{:fakerer, "~> 1.0", only: :test}
+{:faker, "~> 1.0", hex: :fakerer, only: :test}
 ```
 
-That's it. Every `Faker.*` call you already have keeps working - `Faker.Person.first_name/0`, `Faker.Address.city/0`, `Faker.Internet.email/0`, all of it. `Faker.start()` in your `test_helper.exs` is unchanged too. The Hex package is `fakerer`, but the underlying OTP application is still `:faker` - so any `config :faker, locale: :de` (or similar) you have keeps working without modification.
+The dep atom stays `:faker` because the OTP application name is still `:faker` - only the **Hex package name** changes to `fakerer`. The `hex: :fakerer` option tells Mix to fetch it from Hex under the new package name while everything else (the app, the modules, the config) keeps the original `:faker` identity.
+
+That's it. Every `Faker.*` call you already have keeps working - `Faker.Person.first_name/0`, `Faker.Address.city/0`, `Faker.Internet.email/0`, all of it. `Faker.start()` in your `test_helper.exs` is unchanged. Any `config :faker, locale: :de` (or similar) you have keeps working without modification.
 
 Fakerer `1.0.0` includes everything from Faker `0.18.0` plus the changes from `0.19.0-alpha.1` - an upstream pre-release that shipped to Hex in February 2025 (requiring an exact-version pin to install) but never graduated to a stable release. That covers Elixir 1.17 & 1.18 compatibility, deprecation warning fixes, the Airports IATA nil fix, and more - see the [CHANGELOG](CHANGELOG.md).
 
 ## Quickstart
 
-* add `{:fakerer, "~> 1.0"}` to your deps in `mix.exs`:
+* add the dep to your `mix.exs`:
 
     ```elixir
     defp deps do
       [
-        {:fakerer, "~> 1.0", only: :test}
+        {:faker, "~> 1.0", hex: :fakerer, only: :test}
       ]
     end
     ```
+
+    The dep atom is `:faker` (the OTP application name), and `hex: :fakerer` tells Mix where to find the package on Hex.
 
 * run:
 

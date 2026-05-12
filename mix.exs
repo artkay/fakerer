@@ -2,7 +2,7 @@ defmodule Faker.Mixfile do
   use Mix.Project
 
   @source_url "https://github.com/artkay/fakerer"
-  @version "1.0.0"
+  @version "1.0.1"
 
   def project do
     [
@@ -75,6 +75,7 @@ defmodule Faker.Mixfile do
       licenses: ["MIT"],
       links: %{
         "GitHub" => @source_url,
+        "Changelog" => "#{@source_url}/blob/main/CHANGELOG.md",
         "Upstream (elixirs/faker)" => "https://github.com/elixirs/faker"
       }
     ]

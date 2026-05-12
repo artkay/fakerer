@@ -6,6 +6,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and the [Keep 
 
 > Looking for the history of changes from upstream [elixirs/faker](https://github.com/elixirs/faker) (versions through `0.19.0-alpha.1`)? See [CHANGELOG-PRE-1.0.md](CHANGELOG-PRE-1.0.md).
 
+## [1.0.1](https://github.com/artkay/fakerer/compare/v1.0.0...v1.0.1) (2026-05-12)
+
+### Fixed
+
+- **Docs**: corrected the `mix.exs` migration snippet. Because the Hex package name (`fakerer`) differs from the OTP application name (`:faker`), the dep tuple must use the `hex:` option:
+
+  ```elixir
+  {:faker, "~> 1.0", hex: :fakerer, only: :test}
+  ```
+
+  The previous form (`{:fakerer, "~> 1.0", only: :test}`) would cause Mix to mismatch the dep atom against the installed `.app` file. No code or behavior changed in this release - only the README and CHANGELOG migration guidance.
+
 ## [1.0.0](https://github.com/artkay/fakerer/compare/v0.19.0-alpha.1...v1.0.0) (2026-05-11)
 
 This is the first release of **Fakerer**, a maintained fork of [elixirs/faker](https://github.com/elixirs/faker).
