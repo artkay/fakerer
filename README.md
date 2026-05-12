@@ -50,7 +50,7 @@ Change one line in your `mix.exs`:
 
 That's it. Every `Faker.*` call you already have keeps working — `Faker.Person.first_name/0`, `Faker.Address.city/0`, `Faker.Internet.email/0`, all of it. `Faker.start()` in your `test_helper.exs` is unchanged too. The Hex package is `fakerer`, but the underlying OTP application is still `:faker` — so any `config :faker, locale: :de` (or similar) you have keeps working without modification.
 
-Fakerer `1.0.0` includes everything from Faker `0.18.0` plus the changes that were sitting unreleased in `0.19.0-alpha.1` (Elixir 1.17 & 1.18 compatibility, deprecation warning fixes, the Airports IATA nil fix, and more — see the [CHANGELOG](CHANGELOG.md)).
+Fakerer `1.0.0` includes everything from Faker `0.18.0` plus the changes from `0.19.0-alpha.1` — an upstream pre-release that shipped to Hex in February 2025 (requiring an exact-version pin to install) but never graduated to a stable release. That covers Elixir 1.17 & 1.18 compatibility, deprecation warning fixes, the Airports IATA nil fix, and more — see the [CHANGELOG](CHANGELOG.md).
 
 ## Quickstart
 
