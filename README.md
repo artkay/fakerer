@@ -119,4 +119,6 @@ Contributions are welcome — see [CONTRIBUTING.md](https://github.com/artkay/fa
 
 ## [License](https://github.com/artkay/fakerer/blob/main/LICENSE)
 
-Released under the MIT License. Original copyright © Igor Kapkov; fork maintenance copyright © Art Kay.
+Released under the MIT License.
+
+Original copyright © Igor Kapkov; fork maintenance copyright © Art Kay.
