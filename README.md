@@ -1,37 +1,65 @@
-# Faker
+# Fakerer
 
-[![build](https://github.com/elixirs/faker/actions/workflows/ci.yaml/badge.svg)](https://github.com/elixirs/faker/actions/workflows/ci.yaml)
-[![Version](https://img.shields.io/hexpm/v/faker.svg?style=flat-square)](https://hex.pm/packages/faker)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/faker/)
-[![License](https://img.shields.io/hexpm/l/faker.svg?style=flat-square)](https://github.com/elixirs/faker/blob/master/LICENSE)
-[![Issues](https://img.shields.io/github/issues/elixirs/faker.svg?style=flat-square)](https://github.com/elixirs/faker/issues)
-[![Downloads](https://img.shields.io/hexpm/dt/faker.svg?style=flat-square)](https://hex.pm/packages/faker)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square)](https://gitter.im/igas/faker)
-[![Last Updated](https://img.shields.io/github/last-commit/elixirs/faker.svg)](https://github.com/elixirs/faker/commits/master)
+[![build](https://github.com/artkay/fakerer/actions/workflows/ci.yaml/badge.svg)](https://github.com/artkay/fakerer/actions/workflows/ci.yaml)
+[![Version](https://img.shields.io/hexpm/v/fakerer.svg?style=flat-square)](https://hex.pm/packages/fakerer)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/fakerer/)
+[![License](https://img.shields.io/hexpm/l/fakerer.svg?style=flat-square)](https://github.com/artkay/fakerer/blob/main/LICENSE)
+[![Issues](https://img.shields.io/github/issues/artkay/fakerer.svg?style=flat-square)](https://github.com/artkay/fakerer/issues)
+[![Downloads](https://img.shields.io/hexpm/dt/fakerer.svg?style=flat-square)](https://hex.pm/packages/fakerer)
 
-**Faker** is a pure [Elixir](http://elixir-lang.org/) library for generating
-fake data.
+> More Faker than Faker.
 
-- [Faker](#faker)
+**Fakerer** is a maintained fork of [elixirs/faker](https://github.com/elixirs/faker). It is 100% API-compatible — same `Faker.*` modules, same functions, same behavior. Migrating from Faker to Fakerer is a one-line change in your `mix.exs`.
+
+- [Fakerer](#fakerer)
+  - [Why this exists](#why-this-exists)
+  - [Credit](#credit)
+  - [Migration from Faker](#migration-from-faker)
   - [Quickstart](#quickstart)
   - [Requirements](#requirements)
   - [Usage](#usage)
   - [Troubleshooting](#troubleshooting)
   - [Tools](#tools)
-  - [Templating](#contributing)
-  - [Team](#team)
+  - [Templating](#templating)
   - [Contributing](#contributing)
-  - [Thanks](#thanks)
   - [License](#license)
+
+## Why this exists
+
+The upstream `faker` package shipped `0.18.0` in February 2024, then a `0.19.0-alpha.1` in February 2025 that has been sitting for over a year without graduating to a stable release. Open issues and PRs going back to 2023 are unaddressed.
+
+I waited. I asked. I even nudged the alpha along. After repeated attempts to engage with the maintainers went unanswered, I decided to fork rather than keep waiting. No drama, no hard feelings — this is what open source forks are for.
+
+## Credit
+
+Fakerer stands entirely on the shoulders of the original library. Faker was created by [Igor Kapkov (@igas)](https://github.com/igas) and has been maintained for years by the [elixirs/faker](https://github.com/elixirs/faker) team and an enormous list of contributors. All of the locale data, all of the generators, all of the patterns — that's their work. The MIT license is preserved, and so is Igor's copyright.
+
+If you use Fakerer, you are using Faker. Please go star [elixirs/faker](https://github.com/elixirs/faker).
+
+## Migration from Faker
+
+Change one line in your `mix.exs`:
+
+```elixir
+# Before
+{:faker, "~> 0.18", only: :test}
+
+# After
+{:fakerer, "~> 1.0", only: :test}
+```
+
+That's it. Every `Faker.*` call you already have keeps working — `Faker.Person.first_name/0`, `Faker.Address.city/0`, `Faker.Internet.email/0`, all of it. `Faker.start()` in your `test_helper.exs` is unchanged too. The Hex package is `fakerer`, but the underlying OTP application is still `:faker` — so any `config :faker, locale: :de` (or similar) you have keeps working without modification.
+
+Fakerer `1.0.0` includes everything from Faker `0.18.0` plus the changes that were sitting unreleased in `0.19.0-alpha.1` (Elixir 1.17 & 1.18 compatibility, deprecation warning fixes, the Airports IATA nil fix, and more — see the [CHANGELOG](CHANGELOG.md)).
 
 ## Quickstart
 
-* add `{:faker, "~> 0.19.0-alpha.1"}` to your deps in `mix.exs`:
+* add `{:fakerer, "~> 1.0"}` to your deps in `mix.exs`:
 
     ```elixir
     defp deps do
       [
-        {:faker, "~> 0.19.0-alpha.1", only: :test}
+        {:fakerer, "~> 1.0", only: :test}
       ]
     end
     ```
@@ -53,18 +81,20 @@ fake data.
 
 ### Requirements
 
-* OTP 19+
-* Elixir 1.6+
+* OTP 26+
+* Elixir 1.15+
 
 ## Usage
 
-See [documentation](http://hexdocs.pm/faker/) and [usage examples](https://github.com/elixirs/faker/blob/master/USAGE.md).
+See [documentation](http://hexdocs.pm/fakerer/) and [usage examples](https://github.com/artkay/fakerer/blob/main/USAGE.md).
 
 ## Troubleshooting
 
 * If you get a message like the one below when you call `Faker.Address.city/0`,
 you need to add `:faker` to your application's mix file, in the `applications`
-function, as above.
+function, as above. (Yes, `:faker` — the Hex package is `:fakerer`, but the OTP
+application name stays `:faker` so existing code, including `config :faker, ...`
+in your application config, continues to work unchanged.)
 
     ```
     ** (FunctionClauseError) no function clause matching in Faker.Address.city_count/1
@@ -74,7 +104,7 @@ function, as above.
 
 ## Tools
 
-Faker was designed as a lightweight library, that's why it can be easily used
+Fakerer was designed as a lightweight library, that's why it can be easily used
 with other tools.
 
 ## Templating
@@ -83,27 +113,10 @@ You can build templates for testing purposes with the
 [Blacksmith](https://github.com/batate/blacksmith) project. See the Blacksmith
 [readme](https://github.com/batate/blacksmith#readme) for details.
 
-## Team
-
-Faker was originally written by [Igor Kapkov](https://igas.me).
-
-Current list of maintainers:
-
-* [Anthony Smith](https://github.com/anthonator)
-* [Igor Kapkov](https://igas.me)
-* [Toby Hinloopen](https://github.com/tobyhinloopen)
-* [Vitor Oliveira](https://github.com/vbrazo)
-
 ## Contributing
 
-Do you want to become a maintainer?
+Contributions are welcome — see [CONTRIBUTING.md](https://github.com/artkay/fakerer/blob/main/CONTRIBUTING.md). Review cadence is roughly monthly.
 
-See our [CONTRIBUTING.md](https://github.com/elixirs/faker/blob/master/CONTRIBUTING.md) and start contributing today. We usually elect new maintainers based on contributions.
+## [License](https://github.com/artkay/fakerer/blob/main/LICENSE)
 
-## Thanks
-
-[![Sponsored by Evil Martians](https://evilmartians.com/badges/sponsored-by-evil-martians.svg)](https://evilmartians.com/)
-
-## [License](https://github.com/elixirs/faker/blob/master/LICENSE)
-
-Released under the MIT License.
+Released under the MIT License. Original copyright © Igor Kapkov; fork maintenance copyright © Art Kay.

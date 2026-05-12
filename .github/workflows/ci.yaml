@@ -1,86 +1,52 @@
 name: ci
-
-on:
-  pull_request:
-  workflow_call:
-
+on: [push, pull_request]
+env:
+  MIX_ENV: test
 jobs:
-  credo:
+  build:
     runs-on: ubuntu-24.04
-    permissions:
-      contents: read
-      security-events: write
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions/cache@v4.2.0
-        with:
-          key: ${{ github.job }}-${{ hashFiles('mix.lock') }}-1
-          path: _build
-      - uses: erlef/setup-beam@v1.18.2
-        with:
-          elixir-version: 1.17.3
-          otp-version: 26.x
-      - run: mix deps.get
-      - run: mix compile
-      - run: mix credo suggest --format=sarif --mute-exit-status > credo.sarif
-      - name: Upload SARIF
-        uses: github/codeql-action/upload-sarif@v3.28.8
-        with:
-          sarif_file: credo.sarif
-
-  # dialyzer:
-  #   runs-on: ${{ matrix.os || 'ubuntu-24.04' }}
-
-  #   steps:
-  #     - uses: actions/checkout@v4.1.0
-  #     - uses: actions/cache@v3.3.2
-  #       with:
-  #         key: ${{ github.job }}-${{ hashFiles('mix.lock') }}-1
-  #         path: _build
-  #     - uses: erlef/setup-beam@v1.16.0
-  #       id: beam
-  #       with:
-  #         elixir-version: 1.15.x
-  #         otp-version: 26.x
-  #     - run: mix deps.get
-  #     - name: Restore PLT cache
-  #       id: plt_cache
-  #       uses: actions/cache/restore@v3.3.2
-  #       with:
-  #         key: |
-  #           plt-${{ runner.os }}-${{ steps.beam.outputs.otp-version }}-${{ steps.beam.outputs.elixir-version }}-${{ hashFiles('**/mix.lock') }}
-  #         restore-keys: |
-  #           plt-${{ runner.os }}-${{ steps.beam.outputs.otp-version }}-${{ steps.beam.outputs.elixir-version }}-
-  #         path: |
-  #           priv/plts
-
-  #       # Create PLTs if no cache was found
-  #     - name: Create PLTs
-  #       if: steps.plt_cache.outputs.cache-hit != 'true'
-  #       run: mix dialyzer --plt
-  #     - run: mix dialyzer --format github
-
-  test:
-    runs-on: ${{ matrix.os || 'ubuntu-24.04' }}
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions/cache@v4.2.0
-        with:
-          key: ${{ github.job }}-${{ matrix.elixir }}-${{ matrix.otp }}-${{ hashFiles('mix.lock') }}-1
-          path: _build
-      - uses: erlef/setup-beam@v1.18.2
-        with:
-          elixir-version: ${{ matrix.elixir }}
-          otp-version: ${{ matrix.otp }}
-      - run: mix deps.get
-      - run: mix test
     strategy:
-      fail-fast: false
       matrix:
         include:
-          - elixir: 1.16.x
-            otp: 26.x
-          - elixir: 1.17.x
-            otp: 27.x
-          - elixir: 1.18.x
-            otp: 27.x
+          - pair:
+              otp: "28"
+              elixir: "1.19"
+          - pair:
+              otp: "27"
+              elixir: "1.19"
+
+          - pair:
+              otp: "28"
+              elixir: "1.18"
+          - pair:
+              otp: "27"
+              elixir: "1.18"
+          - pair:
+              otp: "27"
+              elixir: "1.17"
+
+          - pair:
+              otp: "26"
+              elixir: "1.17"
+          - pair:
+              otp: "26"
+              elixir: "1.16"
+          - pair:
+              otp: "26"
+              elixir: "1.15"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{matrix.pair.otp}}
+          elixir-version: ${{matrix.pair.elixir}}
+      - run: mix deps.get
+      - run: mix compile
+      - run: mix format --check-formatted
+        if: matrix.pair.elixir == '1.19' # Check formatting only with the latest version
+      - run: mix credo
+        if: matrix.pair.elixir == '1.19' # Run credo only with the latest version
+      - run: mix dialyzer
+        if: matrix.pair.elixir == '1.19' # Run dialyzer only with the latest version
+      - run: mix test

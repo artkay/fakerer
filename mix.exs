@@ -1,32 +1,32 @@
 defmodule Faker.Mixfile do
   use Mix.Project
 
-  @source_url "https://github.com/elixirs/faker"
-  @version "0.19.0-alpha.1"
+  @source_url "https://github.com/artkay/fakerer"
+  @version "1.0.0"
 
   def project do
     [
       app: :faker,
       version: @version,
-      elixir: "~> 1.6",
-      description: "Faker is a pure Elixir library for generating fake data.",
+      elixir: "~> 1.15",
+      description: "A maintained fork of Faker. A pure Elixir library for generating fake data.",
       package: package(),
-      name: "Faker",
+      name: "Fakerer",
       deps: deps(),
       docs: docs(),
       source_url: @source_url,
       homepage_url: @source_url,
-      preferred_cli_env: [
-        "test.watch": :test
-      ],
       dialyzer: [
         flags: [
           :error_handling,
-          :race_conditions,
           :underspecs
         ]
       ]
     ]
+  end
+
+  def cli do
+    [preferred_envs: ["test.watch": :test]]
   end
 
   def application do
@@ -47,13 +47,13 @@ defmodule Faker.Mixfile do
 
   defp deps do
     [
-      {:credo, "== 1.7.11", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "== 1.4.5", only: [:dev], runtime: false},
       {:earmark, "== 1.4.47", only: :dev, runtime: false},
       {:ex_doc, "== 0.37.0", only: :dev, runtime: false},
       {:makeup, "== 1.2.1"},
       {:makeup_elixir, "== 1.0.1"},
-      {:mix_test_watch, "== 1.2.0", only: [:dev, :test], runtime: false}
+      {:mix_test_watch, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -69,10 +69,14 @@ defmodule Faker.Mixfile do
 
   defp package do
     [
-      maintainers: ["Anthony Smith", "Igor Kapkov", "Toby Hinloopen", "Vitor Oliveira"],
+      name: "fakerer",
+      maintainers: ["Art Kay"],
       files: ["lib", "mix.exs", "mix.lock", "README.md", "LICENSE", "CHANGELOG.md"],
       licenses: ["MIT"],
-      links: %{"GitHub" => @source_url}
+      links: %{
+        "GitHub" => @source_url,
+        "Upstream (elixirs/faker)" => "https://github.com/elixirs/faker"
+      }
     ]
   end
 end

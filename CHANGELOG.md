@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.0] (TBD)
+
+This is the first release of **Fakerer**, a maintained fork of [elixirs/faker](https://github.com/elixirs/faker).
+
+### Fork
+
+- Forked from `elixirs/faker` at `0.19.0-alpha.1`.
+- Renamed the Hex package to `fakerer`. The `Faker.*` module API and the underlying OTP application name (`:faker`) are unchanged — migration is a one-line change in `mix.exs`, and `config :faker, ...` keeps working without modification.
+- Promoted to `1.0.0` to signal API stability under new maintenance.
+
+### Included from the unreleased `0.19.0-alpha.1`
+
+- Elixir 1.17 & 1.18 compatibility ([elixirs/faker#565](https://github.com/elixirs/faker/issues/565))
+- Fix Elixir deprecation warnings ([elixirs/faker#571](https://github.com/elixirs/faker/issues/571))
+- Remove `nil` option for Airports IATA ([elixirs/faker#492](https://github.com/elixirs/faker/issues/492))
+- Release automation ([elixirs/faker#581](https://github.com/elixirs/faker/issues/581))
+- Add missing `@semantic-release/exec` ([elixirs/faker#584](https://github.com/elixirs/faker/issues/584))
+- CI `workflow_call` support ([elixirs/faker#586](https://github.com/elixirs/faker/issues/586))
+- CI write permission fix ([elixirs/faker#590](https://github.com/elixirs/faker/issues/590))
+- CI permissions fix ([elixirs/faker#591](https://github.com/elixirs/faker/issues/591))
+- Fix typo in CI workflow path ([elixirs/faker#585](https://github.com/elixirs/faker/issues/585))
+- Makeup packages update ([elixirs/faker#592](https://github.com/elixirs/faker/issues/592))
+- Fix docs generation ([elixirs/faker#594](https://github.com/elixirs/faker/issues/594))
+
 ## [0.19.0-alpha.1](https://github.com/elixirs/faker/compare/v0.18.0...v0.19.0-alpha.1) (2025-02-01)
 
 ### Features

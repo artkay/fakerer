@@ -60,7 +60,7 @@ defmodule Faker.Random.Test do
         {:ok, count, fun} when is_function(fun, 1) ->
           slice_list(fun.(enumerable), random_count(count), 1, 1)
 
-        # TODO: Deprecate me in Elixir v1.18.
+        # Supports Elixir <1.18 where Enumerable.slice/1 could return arity-2; remove when min is 1.18+.
         {:ok, count, fun} when is_function(fun, 2) ->
           fun.(random_count(count), 1)
 
