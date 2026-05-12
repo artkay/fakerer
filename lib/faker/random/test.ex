@@ -58,7 +58,7 @@ defmodule Faker.Random.Test do
           []
 
         {:ok, count, fun} when is_function(fun, 1) ->
-          slice_list(fun.(enumerable), random_count(count), 1, 1)
+          slice_list(fun.(enumerable), random_count(count), 1)
 
         # Supports Elixir <1.18 where Enumerable.slice/1 could return arity-2; remove when min is 1.18+.
         {:ok, count, fun} when is_function(fun, 2) ->
@@ -85,22 +85,13 @@ defmodule Faker.Random.Test do
   defp drop_list([_ | tail], counter), do: drop_list(tail, counter - 1)
   defp drop_list([], _), do: []
 
-  defp slice_list(list, start, amount, step) do
-    if step == 1 do
-      list |> drop_list(start) |> take_list(amount)
-    else
-      list |> drop_list(start) |> take_every_list(amount, step - 1)
-    end
+  defp slice_list(list, start, amount) do
+    list |> drop_list(start) |> take_list(amount)
   end
 
   defp take_list(_list, 0), do: []
   defp take_list([head | tail], counter), do: [head | take_list(tail, counter - 1)]
   defp take_list([], _counter), do: []
-
-  defp take_every_list([head | tail], counter, to_drop),
-    do: [head | tail |> drop_list(to_drop) |> take_every_list(counter - 1, to_drop)]
-
-  defp take_every_list([], _counter, _to_drop), do: []
 
   defp set_seed([]) do
     :rand.seed(:exsplus, {1, 1, 1})
