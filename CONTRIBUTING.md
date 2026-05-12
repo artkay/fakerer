@@ -1,4 +1,4 @@
-Contributions are welcome — thanks for considering it.
+Contributions are welcome - thanks for considering it.
 
 This is **Fakerer**, a maintained fork of [elixirs/faker](https://github.com/elixirs/faker). The fork keeps the `Faker.*` API stable; new features and fixes are accepted here.
 
@@ -6,7 +6,7 @@ This is **Fakerer**, a maintained fork of [elixirs/faker](https://github.com/eli
 
 * [Art Kay](https://github.com/artkay)
 
-Review cadence is **roughly monthly**. This is a personal project, not infrastructure-critical software — I'll get to PRs as I can, but I won't let them sit for a year.
+Review cadence is **roughly monthly**. This is a personal project, not infrastructure-critical software - I'll get to PRs as I can, but I won't let them sit for a year.
 
 ## Submitting a PR
 

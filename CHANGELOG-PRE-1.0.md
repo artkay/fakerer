@@ -1,6 +1,6 @@
 # Pre-1.0 Changelog (upstream elixirs/faker history)
 
-This file preserves the changelog from [elixirs/faker](https://github.com/elixirs/faker) up to `v0.19.0-alpha.1`, the point Fakerer forked. All entries here predate the fork and are kept for historical reference only — no new entries will be added here.
+This file preserves the changelog from [elixirs/faker](https://github.com/elixirs/faker) up to `v0.19.0-alpha.1`, the point Fakerer forked. All entries here predate the fork and are kept for historical reference only - no new entries will be added here.
 
 For Fakerer's own changes from `1.0.0` onward, see [CHANGELOG.md](CHANGELOG.md).
 

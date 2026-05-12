@@ -9,7 +9,7 @@
 
 > More Faker than Faker.
 
-**Fakerer** is a maintained fork of [elixirs/faker](https://github.com/elixirs/faker). It is 100% API-compatible — same `Faker.*` modules, same functions, same behavior. Migrating from Faker to Fakerer is a one-line change in your `mix.exs`.
+**Fakerer** is a maintained fork of [elixirs/faker](https://github.com/elixirs/faker). It is 100% API-compatible - same `Faker.*` modules, same functions, same behavior. Migrating from Faker to Fakerer is a one-line change in your `mix.exs`.
 
 - [Fakerer](#fakerer)
   - [Why this exists](#why-this-exists)
@@ -28,11 +28,11 @@
 
 The upstream `faker` package shipped `0.18.0` in February 2024, then a `0.19.0-alpha.1` in February 2025 that has been sitting for over a year without graduating to a stable release. Open issues and PRs going back to 2023 are unaddressed.
 
-I waited. I asked. I even nudged the alpha along. After repeated attempts to engage with the maintainers went unanswered, I decided to fork rather than keep waiting. No drama, no hard feelings — this is what open source forks are for.
+Plenty of folks have asked, in issues and PRs, when a stable release might get released. The pre-release was a good sign, but it was never followed up - and after a year of waiting, I'd rather maintain a fork than keep refreshing the upstream tracker. No drama, no hard feelings - this is what open source forks are for.
 
 ## Credit
 
-Fakerer stands entirely on the shoulders of the original library. Faker was created by [Igor Kapkov (@igas)](https://github.com/igas) and has been maintained for years by the [elixirs/faker](https://github.com/elixirs/faker) team and an enormous list of contributors. All of the locale data, all of the generators, all of the patterns — that's their work. The MIT license is preserved, and so is Igor's copyright.
+Fakerer stands entirely on the shoulders of the original library. Faker was created by [Igor Kapkov (@igas)](https://github.com/igas) and has been maintained for years by the [elixirs/faker](https://github.com/elixirs/faker) team and an enormous list of contributors. All of the locale data, all of the generators, all of the patterns - that's their work. The MIT license is preserved, and so is Igor's copyright.
 
 If you use Fakerer, you are using Faker. Please go star [elixirs/faker](https://github.com/elixirs/faker).
 
@@ -48,9 +48,9 @@ Change one line in your `mix.exs`:
 {:fakerer, "~> 1.0", only: :test}
 ```
 
-That's it. Every `Faker.*` call you already have keeps working — `Faker.Person.first_name/0`, `Faker.Address.city/0`, `Faker.Internet.email/0`, all of it. `Faker.start()` in your `test_helper.exs` is unchanged too. The Hex package is `fakerer`, but the underlying OTP application is still `:faker` — so any `config :faker, locale: :de` (or similar) you have keeps working without modification.
+That's it. Every `Faker.*` call you already have keeps working - `Faker.Person.first_name/0`, `Faker.Address.city/0`, `Faker.Internet.email/0`, all of it. `Faker.start()` in your `test_helper.exs` is unchanged too. The Hex package is `fakerer`, but the underlying OTP application is still `:faker` - so any `config :faker, locale: :de` (or similar) you have keeps working without modification.
 
-Fakerer `1.0.0` includes everything from Faker `0.18.0` plus the changes from `0.19.0-alpha.1` — an upstream pre-release that shipped to Hex in February 2025 (requiring an exact-version pin to install) but never graduated to a stable release. That covers Elixir 1.17 & 1.18 compatibility, deprecation warning fixes, the Airports IATA nil fix, and more — see the [CHANGELOG](CHANGELOG.md).
+Fakerer `1.0.0` includes everything from Faker `0.18.0` plus the changes from `0.19.0-alpha.1` - an upstream pre-release that shipped to Hex in February 2025 (requiring an exact-version pin to install) but never graduated to a stable release. That covers Elixir 1.17 & 1.18 compatibility, deprecation warning fixes, the Airports IATA nil fix, and more - see the [CHANGELOG](CHANGELOG.md).
 
 ## Quickstart
 
@@ -92,7 +92,7 @@ See [documentation](http://hexdocs.pm/fakerer/) and [usage examples](https://git
 
 * If you get a message like the one below when you call `Faker.Address.city/0`,
 you need to add `:faker` to your application's mix file, in the `applications`
-function, as above. (Yes, `:faker` — the Hex package is `:fakerer`, but the OTP
+function, as above. (Yes, `:faker` - the Hex package is `:fakerer`, but the OTP
 application name stays `:faker` so existing code, including `config :faker, ...`
 in your application config, continues to work unchanged.)
 
@@ -115,7 +115,7 @@ You can build templates for testing purposes with the
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](https://github.com/artkay/fakerer/blob/main/CONTRIBUTING.md). Review cadence is roughly monthly.
+Contributions are welcome - see [CONTRIBUTING.md](https://github.com/artkay/fakerer/blob/main/CONTRIBUTING.md). Review cadence is roughly monthly.
 
 ## [License](https://github.com/artkay/fakerer/blob/main/LICENSE)
 
