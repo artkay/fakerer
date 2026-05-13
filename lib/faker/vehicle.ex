@@ -253,21 +253,22 @@ defmodule Faker.Vehicle do
   localize(:transmission)
 
   @doc """
-  Returns a vehicle identification number string
+  Returns a vehicle identification number string with the correct check digit
 
   ## Examples
 
       iex> Faker.Vehicle.vin()
-      "1C689K5Y000T03374"
+      "1C689K5Y600T03374"
       iex> Faker.Vehicle.vin()
-      "D0B19RGCD90H16449"
+      "D0B19RGC190H16449"
       iex> Faker.Vehicle.vin()
-      "RSE90354760B00530"
+      "RSE90354960B00530"
       iex> Faker.Vehicle.vin()
-      "L9Z63TST830A76983"
+      "L9Z63TST230A76983"
   """
   def vin do
-    Util.format("%10x%y%x%5d",
+    "%10x%y%x%5d"
+    |> Util.format(
       x: fn ->
         Util.pick([Util.upper_letter(), Util.digit()], ["I", "O", "Q"])
       end,
@@ -278,5 +279,51 @@ defmodule Faker.Vehicle do
         Util.digit()
       end
     )
+    |> set_check_digit()
+  end
+
+  @position_weights [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2]
+  @character_values %{
+    "A" => 1,
+    "B" => 2,
+    "C" => 3,
+    "D" => 4,
+    "E" => 5,
+    "F" => 6,
+    "G" => 7,
+    "H" => 8,
+    "J" => 1,
+    "K" => 2,
+    "L" => 3,
+    "M" => 4,
+    "N" => 5,
+    "P" => 7,
+    "R" => 9,
+    "S" => 2,
+    "T" => 3,
+    "U" => 4,
+    "V" => 5,
+    "W" => 6,
+    "X" => 7,
+    "Y" => 8,
+    "Z" => 9
+  }
+
+  defp set_check_digit(partial_vin) do
+    checksum =
+      partial_vin
+      |> String.graphemes()
+      |> Enum.with_index()
+      |> Enum.reduce(0, fn {character, position}, sum ->
+        weight = Enum.at(@position_weights, position)
+        value = Map.get_lazy(@character_values, character, fn -> String.to_integer(character) end)
+
+        sum + weight * value
+      end)
+      |> rem(11)
+
+    check_digit = if checksum > 9, do: "X", else: to_string(checksum)
+
+    String.slice(partial_vin, 0..7) <> check_digit <> String.slice(partial_vin, 9..-1//1)
   end
 end
