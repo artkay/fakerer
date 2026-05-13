@@ -258,13 +258,13 @@ defmodule Faker.Vehicle do
   ## Examples
 
       iex> Faker.Vehicle.vin()
-      "1C68203V9V0360337"
+      "1C689K5Y600T03374"
       iex> Faker.Vehicle.vin()
-      "5190V7FL3YX113016"
+      "D0B19RGC190H16449"
       iex> Faker.Vehicle.vin()
-      "4RSE903569JA97940"
+      "RSE90354960B00530"
       iex> Faker.Vehicle.vin()
-      "59E4A13G190C97377"
+      "L9Z63TST230A76983"
   """
   def vin do
     "%10x%y%x%5d"
@@ -324,6 +324,6 @@ defmodule Faker.Vehicle do
 
     check_digit = if checksum > 9, do: "X", else: to_string(checksum)
 
-    String.slice(partial_vin, 0..7) <> check_digit <> String.slice(partial_vin, 9..-1)
+    String.slice(partial_vin, 0..7) <> check_digit <> String.slice(partial_vin, 9..-1//1)
   end
 end
