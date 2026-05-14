@@ -11,18 +11,15 @@ defmodule Faker.Gov.It do
   @consonants ~w(B C D F G H L M N P Q R S T V Z)
 
   @doc """
-  Returns a random Italian fiscal code
+  Returns a random Italian fiscal code.
 
-  ## Examples
+  The result is a 16-character string in the form `LPRNNL62D49A252F`:
+  6 letters (consonants of surname + name), 2-digit year, 1-letter month,
+  2-digit day (with `+40` offset for women), 4-character town code, and a
+  check letter.
 
-      iex> Faker.Gov.It.fiscal_id
-      "LPRNNL62D49A252F"
-      iex> Faker.Gov.It.fiscal_id
-      "RGTZDP04E48H333G"
-      iex> Faker.Gov.It.fiscal_id
-      "DDMSRS36C43F160J"
-      iex> Faker.Gov.It.fiscal_id
-      "TBSPFC32D50C158B"
+  See [Codice fiscale](https://en.wikipedia.org/wiki/Italian_fiscal_code)
+  for the full specification.
   """
   @spec fiscal_id() :: binary()
   def fiscal_id do
