@@ -6,18 +6,7 @@ defmodule Faker.Airports do
   """
 
   @doc """
-  Returns a random ICAO
-
-  ## Examples
-
-      iex> Faker.Airports.icao()
-      "SNOS"
-      iex> Faker.Airports.icao()
-      "UNBG"
-      iex> Faker.Airports.icao()
-      "KLOM"
-      iex> Faker.Airports.icao()
-      "HCME"
+  Returns a random ICAO location indicator.
   """
   @spec icao() :: String.t()
   sampler(:icao, [
@@ -160,7 +149,6 @@ defmodule Faker.Airports do
     "SBCN",
     "MMPA",
     "OINZ",
-    "19AK",
     "ENAL",
     "SBBW",
     "VNDH",
@@ -279,7 +267,6 @@ defmodule Faker.Airports do
     "RJCO",
     "HCMA",
     "OPSK",
-    "CKQ3",
     "YGBI",
     "YMMB",
     "CYYL",
@@ -547,7 +534,6 @@ defmodule Faker.Airports do
     "RCKH",
     "YERN",
     "OPBN",
-    "KO43",
     "SNGJ",
     "NZKE",
     "LGKO",
@@ -659,7 +645,6 @@ defmodule Faker.Airports do
     "EBBR",
     "SPAY",
     "OISS",
-    "KE13",
     "LIDT",
     "KSDF",
     "PHNY",
@@ -726,7 +711,6 @@ defmodule Faker.Airports do
     "LFRT",
     "ZSBB",
     "ZMUL",
-    "CNM5",
     "UNWW",
     "KHXD",
     "FAGM",
@@ -738,7 +722,6 @@ defmodule Faker.Airports do
     "SDNH",
     "FADQ",
     "SGCO",
-    "CAL4",
     "SUCM",
     "TNCC",
     "OPTA",
@@ -767,7 +750,6 @@ defmodule Faker.Airports do
     "SGAY",
     "ROYN",
     "CYSJ",
-    "CCK4",
     "ENKB",
     "LFKC",
     "KIYK",
@@ -905,7 +887,6 @@ defmodule Faker.Airports do
     "ZBUL",
     "LIRF",
     "VYMK",
-    "CDK2",
     "SKAN",
     "GASK",
     "UHOO",
@@ -913,7 +894,6 @@ defmodule Faker.Airports do
     "FZIR",
     "MMDA",
     "KPHH",
-    "K0B8",
     "GMAZ",
     "SBGU",
     "LSZM",
@@ -933,7 +913,6 @@ defmodule Faker.Airports do
     "DAAT",
     "AYGG",
     "EHBK",
-    "3IS8",
     "SCFT",
     "OPNK",
     "HEPS",
@@ -995,7 +974,6 @@ defmodule Faker.Airports do
     "RPMV",
     "KJMS",
     "RJOT",
-    "CTU5",
     "NIUE",
     "HKKG",
     "VARK",

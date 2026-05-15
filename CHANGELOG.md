@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and the [Keep 
 ### Fixed
 
 - `Faker.Person.It` - strip stray newline and whitespace from the first name "Sergio" ([elixirs/faker#619](https://github.com/elixirs/faker/issues/619)) [[@fabivs](https://github.com/fabivs)]
+- `Faker.Airports.icao/0` - drop 11 entries that were actually FAA location identifiers (e.g. `19AK`, `CKQ3`) so the generator only returns valid four-letter ICAO codes ([elixirs/faker#618](https://github.com/elixirs/faker/issues/618)) [[@carlgleisner](https://github.com/carlgleisner)]
 
 ## [1.1.0](https://github.com/artkay/fakerer/compare/v1.0.1...v1.1.0) (2026-05-13)
 
