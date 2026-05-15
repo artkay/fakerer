@@ -919,8 +919,7 @@ defmodule Faker.Person.It do
     "Serafina",
     "Serafino",
     "Serena",
-    "Sergio
-        ",
+    "Sergio",
     "Severo",
     "Shada",
     "Shaina",
