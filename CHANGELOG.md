@@ -8,6 +8,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and the [Keep 
 
 ## Unreleased
 
+### Added
+
+- `Faker.Timezone.timezone/0`, `Faker.Timezone.canonical/0`, `Faker.Timezone.alias/0` - generate IANA tz database names (canonical, alias, or either) ([elixirs/faker#526](https://github.com/elixirs/faker/pull/526)) [[@tajacks](https://github.com/tajacks)]
+
 ### Fixed
 
 - `Faker.Person.It` - strip stray newline and whitespace from the first name "Sergio" ([elixirs/faker#619](https://github.com/elixirs/faker/issues/619)) [[@fabivs](https://github.com/fabivs)]
