@@ -2,7 +2,7 @@ defmodule Faker.Mixfile do
   use Mix.Project
 
   @source_url "https://github.com/artkay/fakerer"
-  @version "1.1.0"
+  @version "1.2.0"
 
   def project do
     [
