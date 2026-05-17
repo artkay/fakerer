@@ -28,12 +28,12 @@ defmodule Faker.Timezone do
   end
 
   @doc """
-  Returns a random canonical IANA timezone. 
+  Returns a random canonical IANA timezone.
 
-  A canonical timezone is a timezone that is not an alias (a timezone that 
-  links to another timezone in the tz database). 
+  A canonical timezone is a timezone that is not an alias (a timezone that
+  links to another timezone in the tz database).
 
-  ## Examples 
+  ## Examples
 
       iex> Faker.Timezone.canonical()
       "Asia/Choibalsan"
@@ -399,9 +399,9 @@ defmodule Faker.Timezone do
   ])
 
   @doc """
-  Returns a random alias IANA timezone. 
+  Returns a random alias IANA timezone.
 
-  An alias timezone is a timezone that links to another timezone in the tz database. 
+  An alias timezone is a timezone that links to another timezone in the tz database.
 
   ## Examples
 
@@ -412,7 +412,7 @@ defmodule Faker.Timezone do
       iex> Faker.Timezone.alias()
       "America/Atikokan"
       iex> Faker.Timezone.alias()
-      "US/Alaska" 
+      "US/Alaska"
   """
   @spec alias() :: String.t()
   sampler(:alias, [
