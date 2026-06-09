@@ -6,11 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and the [Keep 
 
 > Looking for the history of changes from upstream [elixirs/faker](https://github.com/elixirs/faker) (versions through `0.19.0-alpha.1`)? See [CHANGELOG-PRE-1.0.md](CHANGELOG-PRE-1.0.md).
 
-## Unreleased
+## [1.2.1](https://github.com/artkay/fakerer/compare/v1.2.0...v1.2.1) (2026-06-09)
 
 ### Fixed
 
-- Apply [upstream PR fix](https://github.com/elixirs/faker/pull/633) for string character encoding in Elixir 1.20.0 
+- Apply [upstream PR fix](https://github.com/elixirs/faker/pull/633) for string character encoding in Elixir 1.20.0 ([artkay/fakerer#8](https://github.com/artkay/fakerer/pull/8))
 
 ## [1.2.0](https://github.com/artkay/fakerer/compare/v1.1.0...v1.2.0) (2026-05-17)
 

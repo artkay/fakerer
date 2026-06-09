@@ -9,6 +9,16 @@ jobs:
       matrix:
         include:
           - pair:
+              otp: "29"
+              elixir: "1.20"
+          - pair:
+              otp: "28"
+              elixir: "1.20"
+          - pair:
+              otp: "27"
+              elixir: "1.20"
+
+          - pair:
               otp: "28"
               elixir: "1.19"
           - pair:
@@ -41,9 +51,9 @@ jobs:
       - run: mix deps.get
       - run: mix compile
       - run: mix format --check-formatted
-        if: matrix.pair.elixir == '1.19' # Check formatting only with the latest version
+        if: matrix.pair.elixir == '1.20' # Check formatting only with the latest version
       - run: mix credo
-        if: matrix.pair.elixir == '1.19' # Run credo only with the latest version
+        if: matrix.pair.elixir == '1.20' # Run credo only with the latest version
       - run: mix dialyzer
-        if: matrix.pair.elixir == '1.19' # Run dialyzer only with the latest version
+        if: matrix.pair.elixir == '1.20' # Run dialyzer only with the latest version
       - run: mix test
