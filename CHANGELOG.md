@@ -6,6 +6,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and the [Keep 
 
 > Looking for the history of changes from upstream [elixirs/faker](https://github.com/elixirs/faker) (versions through `0.19.0-alpha.1`)? See [CHANGELOG-PRE-1.0.md](CHANGELOG-PRE-1.0.md).
 
+## [1.2.2](https://github.com/artkay/fakerer/compare/v1.2.1...v1.2.2) (2026-07-19)
+
+### Changed
+
+- `Faker.Util.list/2` - add doctests covering lengths `0` and `1`, adopted from upstream ([elixirs/faker#613](https://github.com/elixirs/faker/pull/613)) [[@ypconstante](https://github.com/ypconstante)]
+- Drop the unused `earmark` dev dependency ([elixirs/faker#651](https://github.com/elixirs/faker/pull/651))
+
 ## [1.2.1](https://github.com/artkay/fakerer/compare/v1.2.0...v1.2.1) (2026-06-09)
 
 ### Fixed
