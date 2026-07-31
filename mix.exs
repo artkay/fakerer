@@ -2,7 +2,7 @@ defmodule Faker.Mixfile do
   use Mix.Project
 
   @source_url "https://github.com/artkay/fakerer"
-  @version "1.2.1"
+  @version "1.2.2"
 
   def project do
     [
@@ -32,7 +32,7 @@ defmodule Faker.Mixfile do
   def application do
     [
       # mod: {Faker.Application, []},
-      extra_applications: [:crypto, :makeup],
+      extra_applications: [:crypto],
       env: env()
     ]
   end
@@ -49,10 +49,7 @@ defmodule Faker.Mixfile do
     [
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
-      {:earmark, "~> 1.4", only: :dev, runtime: false},
       {:ex_doc, "~> 0.40", only: :dev, runtime: false},
-      {:makeup, "~> 1.2"},
-      {:makeup_elixir, "~> 1.0"},
       {:mix_test_watch, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
