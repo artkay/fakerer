@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and the [Keep 
 
 > Looking for the history of changes from upstream [elixirs/faker](https://github.com/elixirs/faker) (versions through `0.19.0-alpha.1`)? See [CHANGELOG-PRE-1.0.md](CHANGELOG-PRE-1.0.md).
 
+## [1.2.3](https://github.com/artkay/fakerer/compare/v1.2.2...v1.2.3) (2026-10-08)
+
+### Added
+
+- `Faker.Gov.Br.cpf/0` - generate Brazilian CPF numbers with valid check digits, formatted as `XXX.XXX.XXX-XX` ([elixirs/faker#501](https://github.com/elixirs/faker/pull/501)) [[@rohlacanna](https://github.com/rohlacanna)]
+
 ## [1.2.2](https://github.com/artkay/fakerer/compare/v1.2.1...v1.2.2) (2026-07-30)
 
 ### Changed
